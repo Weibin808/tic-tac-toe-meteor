@@ -50,9 +50,7 @@ const Board = ({ xIsNext, squares, onPlay }) => {
 
 // eslint-disable-next-line react/function-component-definition
 export default function Game() {
-  // eslint-disable-next-line no-undef
   const [history, setHistory] = useState([Array(9).fill(null)]);
-  // eslint-disable-next-line no-undef
   const [currentMove, setCurrentMove] = useState(0);
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
@@ -68,17 +66,14 @@ export default function Game() {
     setCurrentMove(nextMove);
   }
 
-  const moves = history.map((squares, move) => {
-    let description;
-    if (move > 0) {
-      description = `Go to move #${move}`;
-    } else {
-      description = 'Go to game start';
-    }
+  const moves = history.map((_, move) => {
+    // This will check if the move number is 0, if so, it'll show "Go to game start",
+    // otherwise it'll show "Go to move #move"
+    const desc = move === 0 ? 'Go to game start' : `Go to move #${move}`;
     return (
       <li key={move}>
         {/* eslint-disable-next-line react/button-has-type */}
-        <button onClick={() => jumpTo(move)}>{description}</button>
+        <button onClick={() => jumpTo(move)}>{desc}</button>
       </li>
     );
   });

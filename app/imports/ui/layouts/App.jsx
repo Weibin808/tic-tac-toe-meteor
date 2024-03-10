@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TicTacToe from '../pages/TicTacToe.jsx';
 import NotFound from '../pages/NotFound';
 
-export const App = () => (
+const App = () => (
   <Router>
     <Routes>
       <Route exact path="/" element={<TicTacToe />} />

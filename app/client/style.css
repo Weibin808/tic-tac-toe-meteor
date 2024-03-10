@@ -82,6 +82,7 @@ body {
 }
 .game {
   display: flex;
+  padding: 30px;
   flex-direction: row;
 }
 
